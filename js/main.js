@@ -260,6 +260,12 @@
     var progressBar = document.getElementById('scroll-progress-bar');
     var scrollCue = document.getElementById('scroll-cue');
 
+    if (scrollCue) {
+      scrollCue.addEventListener('click', function () {
+        window.scrollBy({ top: 460, behavior: 'smooth' });
+      });
+    }
+
     function onScroll() {
       var docHeight = document.documentElement.scrollHeight - window.innerHeight;
       var pct = docHeight > 0 ? Math.min(100, Math.max(0, (window.scrollY / docHeight) * 100)) : 0;

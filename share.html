@@ -38,12 +38,30 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    html {
+      height: auto;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       color: var(--slate);
       background: linear-gradient(155deg, #D9EEFC 0%, #F4F9FE 48%, #FCE7EF 100%);
-      min-height: 100dvh;
-      padding: 18px 14px 44px;
+      min-height: 100vh;
+      height: auto;
+      overflow-x: hidden;
+      overflow-y: visible;
+      -webkit-overflow-scrolling: touch;
+      padding: 18px 14px 56px;
+    }
+
+    .quick-nav {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
     }
 
     .wrap {
@@ -243,6 +261,8 @@
       padding: 12px;
       color: var(--slate);
       margin-bottom: 12px;
+      max-height: 132px;
+      overflow-y: auto;
     }
 
     /* Instagram Story 9:16 Preview */
@@ -315,15 +335,19 @@
       <p class="eyebrow">Share Studio • WA, IG &amp; FB</p>
       <h1 class="title-script">Riani &amp; Rafly</h1>
       <p class="subtitle">Buat link undangan khusus dengan nama tamu dan bagikan ke WhatsApp, Facebook, dan Instagram Story dalam sekali ketuk.</p>
+      <div class="quick-nav">
+        <a href="#bagian-tamu" class="btn-pill btn-blue">1. Link Tamu</a>
+        <a href="#bagian-story" class="btn-pill btn-pink">2. Kartu Story IG</a>
+      </div>
     </header>
 
     <!-- 1. GUEST LINK & MESSAGE GENERATOR (WA / FB / IG DM) -->
-    <section class="panel">
+    <section id="bagian-tamu" class="panel">
       <h2 class="panel-title">1. Generator Link Tamu (WA / FB / IG)</h2>
 
       <label for="guest-names">Daftar Nama Tamu (1 nama per baris)</label>
-      <textarea id="guest-names" rows="4" placeholder="Contoh:&#10;Bapak Ahmad &amp; Keluarga&#10;Sahabat SMA Riani&#10;Kak Budi &amp; Partner">Bapak/Ibu/Saudara/i</textarea>
-      <p class="hint">Anda bisa memasukkan 1 nama atau banyak nama sekaligus untuk kirim massal via WhatsApp.</p>
+      <textarea id="guest-names" rows="2" placeholder="Contoh:&#10;Bapak Ahmad &amp; Keluarga&#10;Sahabat SMA Riani&#10;Kak Budi &amp; Partner">Bapak/Ibu/Saudara/i</textarea>
+      <p class="hint">Masukkan 1 nama atau banyak nama (1 baris per tamu) untuk kirim ke WhatsApp, Facebook &amp; Instagram.</p>
 
       <label for="msg-template">Gaya Pesan Pengantar</label>
       <select id="msg-template">
@@ -332,14 +356,14 @@
         <option value="sosmed">Ringkas (Cocok untuk Facebook &amp; Bio/DM Instagram)</option>
       </select>
 
-      <label>Pratinjau Pesan (Tamu Pertama)</label>
-      <div id="preview-msg" class="preview-msg"></div>
-
       <div id="guest-list" class="guest-list"></div>
+
+      <label style="margin-top:14px;">Pratinjau Pesan (Tamu Pertama)</label>
+      <div id="preview-msg" class="preview-msg"></div>
     </section>
 
     <!-- 2. INSTAGRAM STORY / WA STATUS 1080x1920 CARD MAKER -->
-    <section class="panel">
+    <section id="bagian-story" class="panel">
       <h2 class="panel-title pink">2. Kartu Instagram Story &amp; Status WA</h2>
 
       <div class="story-canvas-wrap">

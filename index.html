@@ -37,7 +37,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Amiri:wght@400;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="css/style.css?v=3" />
+  <link rel="stylesheet" href="css/style.css?v=5" />
 </head>
 <body class="is-locked">
 
@@ -292,8 +292,8 @@
       <div id="scroll-progress-bar" class="scroll-progress-bar"></div>
     </div>
 
-    <!-- Audio Element (User's Real Wedding Nasheed MP3) -->
-    <audio id="bg-music" loop preload="metadata">
+    <!-- Audio Element (User's Real Wedding Nasheed MP3 — Lazy Loaded Only on Open) -->
+    <audio id="bg-music" loop preload="none">
       <source src="assets/audio/wedding-music.mp3" type="audio/mpeg" />
     </audio>
 
@@ -320,7 +320,7 @@
     <!-- =======================================================
          1. SAMPUL (TERKUNCI, BELUM BISA SCROLL)
          ======================================================= -->
-    <section id="sec-cover" class="sec-cover" aria-label="Sampul Undangan Pernikahan">
+    <section id="sec-cover" class="sec-cover is-inview" aria-label="Sampul Undangan Pernikahan">
       <!-- Layered Parallax Mosque Facade -->
       <div class="cover-stage">
         <div class="cover-bg-layer" id="cover-bg-layer">
@@ -435,13 +435,13 @@
         <div class="cinema-viewport" id="ayat-viewport">
           <!-- Layer A: Close-up Pink Pavilion flanked by 2 Light-Blue Domes -->
           <div class="scene-layer ayat-pavilion-layer" id="ayat-pavilion-layer">
-            <img src="assets/mosque/pavilion-closeup.jpg" alt="Paviliun Berkubah Pink dengan Dua Kubah Biru Muda" class="scene-img" />
+            <img src="assets/mosque/pavilion-closeup.jpg" alt="Paviliun Berkubah Pink dengan Dua Kubah Biru Muda" class="scene-img" decoding="async" />
             <div class="dome-apex-glow ayat-pavilion-glow" aria-hidden="true"></div>
           </div>
 
           <!-- Layer B: Grand Light-Blue Diamond Dome Pan-Up Layer -->
           <div class="scene-layer ayat-dome-layer" id="ayat-dome-layer">
-            <img src="assets/mosque/dome-closeup.jpg" alt="Close-up Kubah Besar Biru Muda Bertekstur Belah Ketupat dan Pita Kaligrafi Pink" class="scene-img dome-pan-img" />
+            <img src="assets/mosque/dome-closeup.jpg" alt="Close-up Kubah Besar Biru Muda Bertekstur Belah Ketupat dan Pita Kaligrafi Pink" class="scene-img dome-pan-img" decoding="async" />
             <div class="dome-apex-glow dome-finial-glow" id="dome-finial-glow" aria-hidden="true"></div>
           </div>
 
@@ -496,7 +496,7 @@
         <div class="cinema-viewport" id="mempelai-viewport">
           <!-- Full Grand Mosque Facade Behind / Around Pavilion (Revealed on Zoom-Out) -->
           <div class="scene-layer mempelai-facade-layer" id="mempelai-facade-layer">
-            <img src="assets/mosque/facade-main.jpg" alt="Fasad Masjid Biru Muda dan Pink Megah" class="scene-img" />
+            <img src="assets/mosque/facade-main.jpg" alt="Fasad Masjid Biru Muda dan Pink Megah" class="scene-img" decoding="async" />
           </div>
 
           <!-- Couple Photo Living Inside the Mosque Pavilion Arch -->
@@ -506,7 +506,8 @@
               <img src="assets/photos/couple-mempelai.jpg"
                    alt="Foto Asli Siti Riani dan Muhamad Rafly Kristiadi"
                    id="mempelai-photo-img"
-                   class="mempelai-photo-img" />
+                   class="mempelai-photo-img"
+                   decoding="async" />
               <!-- Subtle Pastel Top/Bottom Vignette for Text Legibility -->
               <div class="mempelai-photo-veil" id="mempelai-photo-veil" aria-hidden="true"></div>
             </div>
@@ -1256,9 +1257,9 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js" defer></script>
 
   <!-- App Modules -->
-  <script src="js/particles.js?v=3" defer></script>
-  <script src="js/rsvp.js?v=3" defer></script>
-  <script src="js/camera.js?v=3" defer></script>
-  <script src="js/main.js?v=4" defer></script>
+  <script src="js/particles.js?v=5" defer></script>
+  <script src="js/rsvp.js?v=5" defer></script>
+  <script src="js/camera.js?v=5" defer></script>
+  <script src="js/main.js?v=5" defer></script>
 </body>
 </html>

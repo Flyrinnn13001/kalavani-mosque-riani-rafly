@@ -38,10 +38,9 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* Pure native scrolling — NEVER dual overflow-x:hidden on html+body */
     html {
-      height: auto;
-      overflow-x: hidden;
-      overflow-y: auto;
+      overflow-y: scroll;
       scroll-behavior: smooth;
     }
 
@@ -50,32 +49,22 @@
       color: var(--slate);
       background: linear-gradient(155deg, #D9EEFC 0%, #F4F9FE 48%, #FCE7EF 100%);
       min-height: 100vh;
-      height: auto;
-      overflow-x: hidden;
-      overflow-y: visible;
-      -webkit-overflow-scrolling: touch;
-      padding: 18px 14px 56px;
-    }
-
-    .quick-nav {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-top: 14px;
+      padding: 16px 14px 64px;
     }
 
     .wrap {
       max-width: 480px;
+      width: 100%;
       margin: 0 auto;
     }
 
     .hero-card {
-      background: rgba(255, 255, 255, 0.92);
-      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.94);
+      border-radius: 26px;
       border: 2px solid var(--blue-pastel);
-      box-shadow: 0 16px 40px rgba(91, 141, 191, 0.16), inset 0 0 0 4px rgba(247, 193, 208, 0.28);
-      padding: 24px 20px;
-      margin-bottom: 18px;
+      box-shadow: 0 14px 36px rgba(91, 141, 191, 0.16), inset 0 0 0 3px rgba(247, 193, 208, 0.28);
+      padding: 18px 18px 16px;
+      margin-bottom: 14px;
       text-align: center;
     }
 
@@ -83,15 +72,15 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 600;
       color: var(--blue-deep);
       text-decoration: none;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
 
     .eyebrow {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -100,60 +89,88 @@
 
     .title-script {
       font-family: 'Great Vibes', cursive;
-      font-size: 2.75rem;
+      font-size: 2.5rem;
       color: var(--pink-deep);
       font-weight: 400;
-      line-height: 1.12;
-      margin: 2px 0 6px;
+      line-height: 1.1;
+      margin: 2px 0 4px;
     }
 
     .subtitle {
-      font-size: 0.8rem;
+      font-size: 0.77rem;
       color: var(--slate-muted);
-      line-height: 1.55;
+      line-height: 1.5;
     }
+
+    /* Interactive 2-Tab Bar */
+    .tab-bar {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tab-btn {
+      padding: 9px 10px;
+      border-radius: 999px;
+      border: 1.5px solid var(--blue-pastel);
+      background: var(--blue-soft);
+      color: var(--blue-deep);
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.is-active {
+      background: linear-gradient(135deg, #EE8BA6, #D96C85);
+      border-color: var(--pink-deep);
+      color: var(--white);
+      box-shadow: 0 6px 16px rgba(217, 108, 133, 0.3);
+    }
+
+    .tab-panel { display: block; }
+    .tab-panel.is-hidden { display: none; }
 
     .panel {
       background: var(--white);
       border-radius: 24px;
       border: 1.5px solid var(--blue-pastel);
       box-shadow: 0 12px 32px rgba(91, 141, 191, 0.14);
-      padding: 20px 18px;
-      margin-bottom: 18px;
+      padding: 18px 16px;
+      margin-bottom: 16px;
     }
 
     .panel-title {
-      font-size: 0.84rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: var(--blue-deep);
       text-transform: uppercase;
       letter-spacing: 0.1em;
-      margin-bottom: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      margin-bottom: 12px;
     }
 
     .panel-title.pink { color: var(--pink-deep); }
 
     label {
       display: block;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 600;
       color: var(--slate-dark);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
     textarea, select, input {
       width: 100%;
       font-family: inherit;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       color: var(--slate-dark);
       background: #F6FAFE;
       border: 1.5px solid #D4EAFB;
       border-radius: 14px;
-      padding: 11px 13px;
-      margin-bottom: 14px;
+      padding: 9px 12px;
+      margin-bottom: 10px;
     }
 
     textarea:focus, select:focus, input:focus {
@@ -164,39 +181,39 @@
     }
 
     .hint {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--slate-muted);
-      margin-top: -8px;
-      margin-bottom: 14px;
+      margin-top: -6px;
+      margin-bottom: 10px;
     }
 
     .btn-pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
-      padding: 10px 16px;
+      gap: 6px;
+      padding: 10px 14px;
       border-radius: 999px;
       border: 1.5px solid rgba(255, 255, 255, 0.65);
       font-family: inherit;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: var(--white);
       cursor: pointer;
       text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease;
     }
 
     .btn-pill:active { transform: scale(0.96); }
 
     .btn-pink {
       background: linear-gradient(135deg, #EE8BA6, #D96C85);
-      box-shadow: 0 8px 20px rgba(217, 108, 133, 0.3);
+      box-shadow: 0 8px 18px rgba(217, 108, 133, 0.28);
     }
 
     .btn-blue {
       background: linear-gradient(135deg, #87C0EE, #5F9BD1);
-      box-shadow: 0 8px 20px rgba(91, 141, 191, 0.28);
+      box-shadow: 0 8px 18px rgba(91, 141, 191, 0.26);
     }
 
     .btn-full { width: 100%; }
@@ -204,15 +221,15 @@
     .guest-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      margin-top: 14px;
+      gap: 10px;
+      margin-top: 6px;
     }
 
     .guest-item {
       background: linear-gradient(150deg, #FFFFFF, #F5FAFF);
       border: 1.5px solid var(--blue-pastel);
       border-radius: 18px;
-      padding: 14px;
+      padding: 13px;
     }
 
     .guest-item:nth-child(even) {
@@ -229,16 +246,16 @@
     }
 
     .guest-item-name {
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 700;
       color: var(--slate-dark);
     }
 
     .guest-item-url {
-      font-size: 0.7rem;
+      font-size: 0.69rem;
       color: var(--blue-deep);
       word-break: break-all;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.88);
       border: 1px dashed var(--blue-pastel);
       border-radius: 10px;
       padding: 6px 9px;
@@ -251,25 +268,36 @@
       gap: 8px;
     }
 
-    .preview-msg {
-      font-size: 0.76rem;
-      line-height: 1.55;
-      white-space: pre-wrap;
+    details.preview-details {
+      margin-top: 12px;
       background: #F6FAFE;
       border: 1px solid #D4EAFB;
       border-radius: 14px;
-      padding: 12px;
+      padding: 10px 12px;
+    }
+
+    details.preview-details summary {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--blue-deep);
+      cursor: pointer;
+    }
+
+    .preview-msg {
+      margin-top: 8px;
+      font-size: 0.74rem;
+      line-height: 1.55;
+      white-space: pre-wrap;
       color: var(--slate);
-      margin-bottom: 12px;
-      max-height: 132px;
+      max-height: 180px;
       overflow-y: auto;
     }
 
     /* Instagram Story 9:16 Preview */
     .story-canvas-wrap {
       width: 100%;
-      max-width: 260px;
-      margin: 0 auto 14px;
+      max-width: 240px;
+      margin: 0 auto 12px;
       border-radius: 18px;
       overflow: hidden;
       border: 2px solid var(--pink-pastel);
@@ -284,14 +312,14 @@
     }
 
     .ig-steps {
-      font-size: 0.76rem;
-      line-height: 1.6;
+      font-size: 0.75rem;
+      line-height: 1.55;
       color: var(--slate);
       background: var(--pink-soft);
       border: 1px solid var(--pink-pastel);
       border-radius: 14px;
-      padding: 11px 13px;
-      margin-bottom: 14px;
+      padding: 10px 13px;
+      margin-bottom: 12px;
     }
 
     .ig-steps ol { padding-left: 18px; }
@@ -324,7 +352,7 @@
       font-size: 0.8rem;
       font-weight: 600;
       color: var(--pink-deep);
-      margin-top: 8px;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -334,20 +362,21 @@
       <a href="index.html" class="back-link">&larr; Kembali ke Undangan</a>
       <p class="eyebrow">Share Studio • WA, IG &amp; FB</p>
       <h1 class="title-script">Riani &amp; Rafly</h1>
-      <p class="subtitle">Buat link undangan khusus dengan nama tamu dan bagikan ke WhatsApp, Facebook, dan Instagram Story dalam sekali ketuk.</p>
-      <div class="quick-nav">
-        <a href="#bagian-tamu" class="btn-pill btn-blue">1. Link Tamu</a>
-        <a href="#bagian-story" class="btn-pill btn-pink">2. Kartu Story IG</a>
+      <p class="subtitle">Buat link undangan khusus nama tamu &amp; kartu Instagram Story dalam sekali ketuk.</p>
+
+      <div class="tab-bar" role="tablist">
+        <button id="tab-tamu" class="tab-btn is-active" type="button" role="tab" aria-selected="true">1. Link WA / FB / IG</button>
+        <button id="tab-story" class="tab-btn" type="button" role="tab" aria-selected="false">2. Kartu Story IG</button>
       </div>
     </header>
 
-    <!-- 1. GUEST LINK & MESSAGE GENERATOR (WA / FB / IG DM) -->
-    <section id="bagian-tamu" class="panel">
-      <h2 class="panel-title">1. Generator Link Tamu (WA / FB / IG)</h2>
+    <!-- TAB 1: GUEST LINK & MESSAGE GENERATOR (WA / FB / IG DM) -->
+    <section id="panel-tamu" class="panel tab-panel">
+      <h2 class="panel-title">Generator Link Tamu (WA / FB / IG)</h2>
 
       <label for="guest-names">Daftar Nama Tamu (1 nama per baris)</label>
-      <textarea id="guest-names" rows="2" placeholder="Contoh:&#10;Bapak Ahmad &amp; Keluarga&#10;Sahabat SMA Riani&#10;Kak Budi &amp; Partner">Bapak/Ibu/Saudara/i</textarea>
-      <p class="hint">Masukkan 1 nama atau banyak nama (1 baris per tamu) untuk kirim ke WhatsApp, Facebook &amp; Instagram.</p>
+      <textarea id="guest-names" rows="2" placeholder="Contoh:&#10;Bapak Ahmad &amp; Keluarga&#10;Sahabat SMA Riani">Bapak/Ibu/Saudara/i</textarea>
+      <p class="hint">Tulis 1 nama atau banyak nama (1 baris per tamu) untuk kirim ke WhatsApp, Facebook &amp; Instagram.</p>
 
       <label for="msg-template">Gaya Pesan Pengantar</label>
       <select id="msg-template">
@@ -356,15 +385,18 @@
         <option value="sosmed">Ringkas (Cocok untuk Facebook &amp; Bio/DM Instagram)</option>
       </select>
 
+      <!-- Share Action Cards IMMEDIATELY Visible Above the Fold -->
       <div id="guest-list" class="guest-list"></div>
 
-      <label style="margin-top:14px;">Pratinjau Pesan (Tamu Pertama)</label>
-      <div id="preview-msg" class="preview-msg"></div>
+      <details class="preview-details">
+        <summary>Lihat Pratinjau Teks Pesan Undangan</summary>
+        <div id="preview-msg" class="preview-msg"></div>
+      </details>
     </section>
 
-    <!-- 2. INSTAGRAM STORY / WA STATUS 1080x1920 CARD MAKER -->
-    <section id="bagian-story" class="panel">
-      <h2 class="panel-title pink">2. Kartu Instagram Story &amp; Status WA</h2>
+    <!-- TAB 2: INSTAGRAM STORY / WA STATUS 1080x1920 CARD MAKER -->
+    <section id="panel-story" class="panel tab-panel is-hidden">
+      <h2 class="panel-title pink">Kartu Instagram Story &amp; Status WA</h2>
 
       <div class="story-canvas-wrap">
         <canvas id="story-canvas" width="1080" height="1920"></canvas>
@@ -374,7 +406,7 @@
         <strong>Cara Share ke Instagram Story:</strong>
         <ol>
           <li>Ketuk <strong>Unduh Kartu Story IG</strong> di bawah.</li>
-          <li>Ketuk <strong>Salin Link untuk Stiker IG</strong>.</li>
+          <li>Ketuk <strong>Salin Link Stiker IG</strong>.</li>
           <li>Upload gambar ke Instagram Story lalu tempel link pada stiker <strong>Link</strong>.</li>
         </ol>
       </div>
@@ -404,6 +436,26 @@
       var listEl = document.getElementById('guest-list');
       var toastEl = document.getElementById('toast');
       var toastTimer = null;
+
+      // Tab Switching
+      var tabTamu = document.getElementById('tab-tamu');
+      var tabStory = document.getElementById('tab-story');
+      var panelTamu = document.getElementById('panel-tamu');
+      var panelStory = document.getElementById('panel-story');
+
+      function switchTab(target) {
+        var isStory = target === 'story';
+        tabTamu.classList.toggle('is-active', !isStory);
+        tabStory.classList.toggle('is-active', isStory);
+        tabTamu.setAttribute('aria-selected', !isStory ? 'true' : 'false');
+        tabStory.setAttribute('aria-selected', isStory ? 'true' : 'false');
+        panelTamu.classList.toggle('is-hidden', isStory);
+        panelStory.classList.toggle('is-hidden', !isStory);
+        if (isStory) renderStoryCanvas();
+      }
+
+      tabTamu.addEventListener('click', function () { switchTab('tamu'); });
+      tabStory.addEventListener('click', function () { switchTab('story'); });
 
       function showToast(msg) {
         toastEl.textContent = msg;
@@ -517,7 +569,6 @@
           var grid = document.createElement('div');
           grid.className = 'action-grid';
 
-          // WhatsApp
           var waBtn = document.createElement('a');
           waBtn.className = 'btn-pill btn-blue';
           waBtn.href = 'https://wa.me/?text=' + encodeURIComponent(msg);
@@ -525,7 +576,6 @@
           waBtn.rel = 'noopener noreferrer';
           waBtn.textContent = 'Kirim WhatsApp';
 
-          // Facebook
           var fbBtn = document.createElement('a');
           fbBtn.className = 'btn-pill btn-blue';
           fbBtn.href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url) + '&quote=' + encodeURIComponent('The Wedding of Riani & Rafly — 22 Agustus 2027');
@@ -533,7 +583,6 @@
           fbBtn.rel = 'noopener noreferrer';
           fbBtn.textContent = 'Share Facebook';
 
-          // Instagram DM / Caption
           var igBtn = document.createElement('button');
           igBtn.type = 'button';
           igBtn.className = 'btn-pill btn-pink';
@@ -544,7 +593,6 @@
             });
           });
 
-          // Copy URL only
           var copyBtn = document.createElement('button');
           copyBtn.type = 'button';
           copyBtn.className = 'btn-pill btn-pink';
@@ -567,11 +615,10 @@
         });
       }
 
-      /* --------------------------------------------------------------------
-         1080x1920 INSTAGRAM STORY CARD CANVAS RENDERER (ZERO GOLD)
-         -------------------------------------------------------------------- */
+      /* 1080x1920 INSTAGRAM STORY CARD CANVAS RENDERER (ZERO GOLD) */
       var canvas = document.getElementById('story-canvas');
       var ctx = canvas.getContext('2d');
+      var storyRendered = false;
 
       function loadImage(src) {
         return new Promise(function (resolve, reject) {
@@ -598,18 +645,18 @@
       }
 
       function renderStoryCanvas() {
+        if (storyRendered) return;
         Promise.all([
           loadImage('assets/mosque/facade-main.jpg'),
           loadImage('assets/photos/couple-mempelai.jpg')
         ]).then(function (imgs) {
+          storyRendered = true;
           var bg = imgs[0];
           var couple = imgs[1];
           var W = 1080, H = 1920;
 
-          // 1. Background 3D pastel mosque facade
           ctx.drawImage(bg, 0, 0, W, H);
 
-          // 2. Soft dreamy pastel veil
           var grad = ctx.createLinearGradient(0, 0, 0, H);
           grad.addColorStop(0, 'rgba(235, 246, 254, 0.72)');
           grad.addColorStop(0.45, 'rgba(255, 255, 255, 0.28)');
@@ -617,7 +664,6 @@
           ctx.fillStyle = grad;
           ctx.fillRect(0, 0, W, H);
 
-          // 3. Double outer frame (Light Blue & Pastel Pink)
           ctx.strokeStyle = '#7CB6E8';
           ctx.lineWidth = 6;
           ctx.strokeRect(36, 36, W - 72, H - 72);
@@ -625,7 +671,6 @@
           ctx.lineWidth = 3;
           ctx.strokeRect(52, 52, W - 104, H - 104);
 
-          // 4. Header Typography
           ctx.textAlign = 'center';
           ctx.fillStyle = '#5B8DBF';
           ctx.font = '600 32px Poppins, sans-serif';
@@ -635,7 +680,6 @@
           ctx.font = '400 132px "Great Vibes", Georgia, serif';
           ctx.fillText('Riani & Rafly', W / 2, 315);
 
-          // 5. Arch Photo Frame in Center
           var px = 195, py = 400, pw = 690, ph = 860;
           ctx.save();
           ctx.beginPath();
@@ -649,11 +693,9 @@
           ctx.stroke();
 
           ctx.clip();
-          // Draw couple centered cleanly inside arch
           ctx.drawImage(couple, px - 15, py - 35, pw + 30, (pw + 30) * (1024 / 768));
           ctx.restore();
 
-          // Double pastel arch outlines
           ctx.beginPath();
           ctx.arc(px + pw / 2, py + pw / 2, pw / 2, Math.PI, 0, false);
           ctx.lineTo(px + pw, py + ph);
@@ -663,7 +705,6 @@
           ctx.strokeStyle = '#7CB6E8';
           ctx.stroke();
 
-          // 6. Bottom Frosted Date & Venue Card
           drawRoundedRect(ctx, 110, 1320, 860, 410, 44);
           ctx.fillStyle = 'rgba(255, 255, 255, 0.90)';
           ctx.fill();
@@ -684,7 +725,6 @@
           ctx.fillText('Akad 08.00 WIB  •  Resepsi 09.00 WIB s/d Selesai', W / 2, 1538);
           ctx.fillText('Karangtengah, Karangsembung, Kab. Cirebon', W / 2, 1584);
 
-          // Pink CTA pill cue for IG Link Sticker
           drawRoundedRect(ctx, 250, 1624, 580, 74, 37);
           ctx.fillStyle = '#E7809B';
           ctx.fill();
@@ -692,13 +732,10 @@
           ctx.font = '600 28px Poppins, sans-serif';
           ctx.fillText('Ketuk Link untuk Buka Undangan', W / 2, 1671);
 
-          // Watermark
           ctx.fillStyle = '#D96C85';
           ctx.font = '600 26px Poppins, sans-serif';
           ctx.fillText('created by 🩷 Riani&Rafly', W / 2, 1812);
-        }).catch(function () {
-          // Graceful no-op if images still loading
-        });
+        }).catch(function () {});
       }
 
       document.getElementById('btn-download-story').addEventListener('click', function () {
@@ -740,11 +777,6 @@
       tplEl.addEventListener('change', renderGuests);
 
       renderGuests();
-      if (document.fonts && document.fonts.ready) {
-        document.fonts.ready.then(renderStoryCanvas);
-      } else {
-        window.addEventListener('load', renderStoryCanvas);
-      }
     })();
   </script>
 </body>

@@ -28,10 +28,12 @@
     }
     document.documentElement.classList.remove('is-locked');
     document.body.classList.remove('is-locked');
-    document.documentElement.style.overflowY = 'auto';
-    document.body.style.overflowY = 'visible';
-    document.body.style.height = 'auto';
-    document.body.style.touchAction = 'auto';
+    document.documentElement.style.overflow = '';
+    document.documentElement.style.overflowY = '';
+    document.body.style.overflow = '';
+    document.body.style.overflowY = '';
+    document.body.style.height = '';
+    document.body.style.touchAction = '';
   }
 
   /* ------------------------------------------------------------------------

@@ -63,9 +63,6 @@ html {
   font-size: 16px;
   scroll-behavior: auto; /* GSAP ScrollTrigger controls scrubbing smoothly */
   -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: auto;
   background: linear-gradient(155deg, #E2F1FC 0%, #F4F9FE 48%, #FCEBF1 100%);
 }
 
@@ -74,21 +71,15 @@ body {
   color: var(--text-slate);
   line-height: 1.6;
   min-height: 100vh;
-  height: auto;
-  overflow-x: hidden;
-  overflow-y: visible;
-  -webkit-overflow-scrolling: touch;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: transparent;
 }
 
 /* Cover Lock State (Cannot scroll before clicking Buka Undangan) */
-html.is-locked,
 body.is-locked {
-  overflow: hidden !important;
+  overflow: hidden;
   height: 100vh;
-  height: 100dvh;
 }
 
 body.is-locked .invitation-main {

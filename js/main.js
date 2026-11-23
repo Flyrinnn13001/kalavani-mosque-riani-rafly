@@ -308,7 +308,7 @@
 
     if (waBtn) {
       waBtn.addEventListener('click', function () {
-        var waLink = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+        var waLink = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(shareText);
         window.open(waLink, '_blank', 'noopener,noreferrer');
       });
     }

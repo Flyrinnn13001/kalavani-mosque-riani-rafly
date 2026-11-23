@@ -495,7 +495,7 @@
           return (
             'Halo ' + display + '! ✨\n\n' +
             'Dengan penuh kebahagiaan, kami ingin berbagi kabar baik tentang hari pernikahan kami:\n\n' +
-            '🩷 *Riani & Rafly* 🩵\n' +
+            '🌸 *Riani & Rafly* 💙\n' +
             '📅 Minggu, 22 Agustus 2027\n' +
             '🕗 Akad: 08.00 WIB | Resepsi: 09.00 WIB s/d Selesai\n' +
             '📍 Kediaman Mempelai Wanita, Karangtengah, Karangsembung, Kab. Cirebon\n\n' +
@@ -509,7 +509,7 @@
             '✨ The Wedding of Riani & Rafly ✨\n' +
             'Siti Riani & Muhamad Rafly Kristiadi\n' +
             '📅 Minggu, 22 Agustus 2027 • Cirebon\n\n' +
-            'Mohon doa restu untuk langkah baru kami 🩷🩵\n' +
+            'Mohon doa restu untuk langkah baru kami 🌸💙\n' +
             'Buka undangan digital:\n' + url + '\n\n' +
             '#TheWeddingOfRianiRafly #RianiRafly2027 #UndanganPernikahanDigital'
           );
@@ -571,7 +571,7 @@
 
           var waBtn = document.createElement('a');
           waBtn.className = 'btn-pill btn-blue';
-          waBtn.href = 'https://wa.me/?text=' + encodeURIComponent(msg);
+          waBtn.href = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(msg);
           waBtn.target = '_blank';
           waBtn.rel = 'noopener noreferrer';
           waBtn.textContent = 'Kirim WhatsApp';
